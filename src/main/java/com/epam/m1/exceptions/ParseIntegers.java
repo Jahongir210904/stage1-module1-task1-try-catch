@@ -20,12 +20,22 @@ public class ParseIntegers {
         int sum = 0;
         String justWords = "";
         while (words.hasNext()) {
+            int number=0;
             String next = words.next();
-            int number = Integer.parseInt(next);
+            try{
+                number = Integer.parseInt(next);
+            }catch (Exception err){
+                System.out.println("NumberFormatException");
+            }
+            if (number==0){
+                justWords+=next+" ";
+            }else {
+                sum+=number;
+            }
             // todo: complete it
         }
         System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+        System.out.println("Just words: " + justWords);
     }
 }
 
